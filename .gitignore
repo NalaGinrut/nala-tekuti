@@ -11,3 +11,4 @@
 *.go
 tekuti/config.scm
 *~
+*.bak

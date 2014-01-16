@@ -125,7 +125,7 @@
 
 (define de-newline (s///g "[\n\r]" " "))
 
-(define *at-light-regex* (string->irregex "(@[^@ ]+)"))
+(define *at-light-regex* (string->irregex "(^| )(@[^@,。 ]+)"))
 (define (make-new-comment key title post-data)
   (define (->@light c)
     (irregex-replace/all
