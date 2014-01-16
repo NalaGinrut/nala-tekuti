@@ -61,7 +61,7 @@
    ;; ((GET debug) page-debug)
    ;; extra pages 
    ((GET about) (extra-page-emit "about"))
-   ((GET softwares) (extra-page-emit "softwares"))
+   ((GET projects) (extra-page-emit "projects"))
    ((GET writings) (extra-page-emit "writings"))
    ((GET community) (extra-page-emit "community"))
    (else page-not-found)))
