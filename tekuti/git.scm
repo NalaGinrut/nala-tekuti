@@ -110,6 +110,7 @@
       (run env #f (cons* *git* "--bare" args))))
 
 (define (git . args)
+  (format #t "[GIT]: ~{~a~^ ~}~%" args) 
   (git* args))
 
 ;;;
@@ -134,6 +135,7 @@
         (chdir d))))
 
 (define (git-ls-tree treeish path)
+  (format #t "treeish: ~a, path: ~a~%" treeish path)
   (or (and treeish
            (false-if-git-error
             (match-lines (git "ls-tree" treeish (or path "."))
