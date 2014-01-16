@@ -26,6 +26,8 @@
 
 (define-module (tekuti web)
   #:use-module (web server)
+  #:use-module (web request)
+  #:use-module (web uri)
   #:use-module (tekuti cache)
   #:use-module (tekuti request)
   #:use-module (tekuti index)
@@ -35,6 +37,8 @@
   #:export (main-loop))
 
 (define (choose-handler request)
+  (format #t "[PATH]: ~a~%" (uri-path (request-uri request)))
+  (format #t "[METHOD]: ~a~%" (request-method request))
   (request-path-case
    request
    ((GET admin) page-admin)
