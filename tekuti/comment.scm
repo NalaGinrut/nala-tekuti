@@ -74,7 +74,7 @@
        (cite ,(let ((url (assq-ref comment 'author_url))
                     (name (assq-ref comment 'author)))
                 (if (and url (not (string-null? url)))
-                    `(a (@ (href ,url) (rel "external nofollow")) ,name)
+                    `(a (@ (href ,url) (id "visitor") (rel "external nofollow")) ,name)
                     name)))
        " says:" (br)
        ,(let ((fmt (or (assq-ref comment 'format) 'wordpress)))
