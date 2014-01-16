@@ -1,0 +1,13 @@
+/INSTALL
+/Makefile
+/Makefile.in
+/aclocal.m4
+/autom4te.cache
+/build-aux
+/config.log
+/config.status
+/configure
+/env
+*.go
+tekuti/config.scm
+*~
