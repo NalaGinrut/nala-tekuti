@@ -63,6 +63,11 @@
 	  (link (@ (href "http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic")
 		   (rel "stylesheet")
 		   (type "text/css")))
+	  (script (@ (type "text/x-mathjax-config"))
+		  "MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']]}});")
+	  (script (@ (type "text/javascript")
+		     (src "https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"))
+		  " ") ; NOTE: this whitespace is black magic for SXML in Guile!
 	  (link (@ (rel "alternate")
                    (type "application/rss+xml")
                    (title ,*title*)
