@@ -88,7 +88,6 @@
                   (content-type 'text/html)
                   (extra-headers '())
                   (sxml (and body ((@ (tekuti template) templatize) #:title title #:body body))))
-(format #t "rel: ~a,~a~%" redirect (and=> redirect ensure-public-uri))
   (values (build-response
            #:code status
            #:headers (build-headers
@@ -133,7 +132,6 @@
 (define* (relative-path base path-components #:key query fragment)
   (let ((path (encode-and-join-uri-path (append base path-components)))
         (query (and=> query unparse-www-form-urlencoded)))
-(format #t "[~a, ~a~%" base path-components)
     (if query
         (if fragment
             (string-append "/" path "?" query "#" fragment)
@@ -148,7 +146,6 @@
       ,text))
 
 (define* (relurl path-components #:key query fragment (base #t))
-(display (if base *public-path-base* '()))
   (relative-path (if base *public-path-base* '())
 		 path-components #:query query
                  #:fragment fragment))

@@ -111,11 +111,11 @@
   (git "show" (string-append (assq-ref post 'sha1) ":content")))
 
 (define (post-sxml-content post)
-  (let ((format (or (assq-ref post 'format) 'wordpress))
+  (let ((fmt (or (assq-ref post 'format) 'wordpress))
         (raw (post-raw-content post)))
     (catch #t
            (lambda ()
-             (case format
+             (case fmt
                ((wordpress) (wordpress->sxml raw))
                (else `(pre ,raw))))
            (lambda args
@@ -127,6 +127,7 @@
     (date->string date "~e ~B ~Y ~l:~M ~p")))
 
 (define (post-comments post)
+  (format #t "post-comments: ~a~%" post)
   (dsu-sort
    (map (lambda (pair)
           (blob->comment (car pair) (cadr pair)))
@@ -175,7 +176,6 @@
 (define collapse (s///g "[-]+" "-"))
 
 (define (title->name title)
-  (format #t "MMR: title ~a~%" title)
   (collapse (remove-extraneous (space-to-dash (string-downcase title)))))
 
 ;; some verification necessary...
