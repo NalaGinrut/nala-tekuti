@@ -68,11 +68,13 @@
 	  (script (@ (type "text/javascript")
 		     (src "https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"))
 		  " ") ; NOTE: this whitespace is black magic for SXML in Guile!
+	  (script (@ (type "text/javascript") (src "blog/js/sh_main.min.js")) " ")
+	  (link (@ (type "text/css") (rel "stylesheet") (href "blog/css/sh_emacs.css")))
 	  (link (@ (rel "alternate")
                    (type "application/rss+xml")
                    (title ,*title*)
                    (href ,((@ (tekuti page-helpers) relurl) `("feed" "atom"))))))
-    (body
+    (body (@ (onload "sh_highlightDocument('blog/js/lang/', '.js');"))
      (div (@ (id "rap"))
           (h1 (@ (id "header"))
               (a (@ ,(href "")) ,*title*))
