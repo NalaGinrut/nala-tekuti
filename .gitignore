@@ -12,3 +12,5 @@
 tekuti/config.scm
 *~
 *.bak
+*.log
+*.pid

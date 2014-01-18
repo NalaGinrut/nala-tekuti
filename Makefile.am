@@ -31,3 +31,6 @@ GUILE_WARNINGS = -Wunbound-variable -Warity-mismatch -Wformat
 SUFFIXES = .scm .go
 .scm.go:
 	$(top_builddir)/env $(GUILE_TOOLS) compile $(GUILE_WARNINGS) -o "$@" "$<"
+
+install-exec-hook:
+	install 755 tekuti-service /etc/init.d/tekuti
