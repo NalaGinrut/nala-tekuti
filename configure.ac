@@ -17,5 +17,6 @@ fi
 
 AC_CONFIG_FILES([Makefile])
 AC_CONFIG_FILES([env], [chmod +x env])
+AC_CONFIG_FILES([tekuti-service], [chmod +x tekuti-service])
 
 AC_OUTPUT

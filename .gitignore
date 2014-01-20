@@ -14,3 +14,4 @@ tekuti/config.scm
 *.bak
 *.log
 *.pid
+tekuti-service
