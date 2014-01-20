@@ -53,6 +53,7 @@
     (head (title ,title)
           (meta (@ (name "Generator")
                    (content "An unholy concoction of parenthetical guile")))
+	  (link (@ (rel "shortcut icon") (href "http://sixoth.com/mmr.ico")))
           (link (@ (rel "stylesheet")
                    (type "text/css")
                    (media "screen")
