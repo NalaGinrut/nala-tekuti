@@ -229,7 +229,7 @@
        " " (label (@ (for "email")) (small "Mail (will not be published)")))
     (p (input (@ (type "text") (name "url") (value ,url)
                  (size "22") (tabindex "3")))
-       " " (label (@ (for "url")) (small "Website")))
+       " " (label (@ (for "url")) (small "Website (Optional)")))
     (p (input (@ (type "text") (name "x") (value "")
                  (size "22") (tabindex "3")))
        " " (label (@ (for "x")) (small "What's your favorite number?")))
