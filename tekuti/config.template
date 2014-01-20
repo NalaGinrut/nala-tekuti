@@ -32,8 +32,10 @@
             *git-dir* *git* *debug* *admin-user* *admin-pass*
             *css-file* *navbar-links* *navbar-infix*
             *title* *subtitle* *name* *site-base* *admin-url*
-            *server-impl* *server-impl-args* *friendly-links*))
+            *server-impl* *server-impl-args* *friendly-links*
+	    *mod-path*))
 
+(define *mod-path* "/usr/share/guile/site") ; change it at your own
 (define *public-host* "127.0.0.1")
 (define *public-port* 8080)
 (define *public-path-base* '())

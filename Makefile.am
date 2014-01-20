@@ -39,6 +39,8 @@ install-exec-hook:
 	rm -f $(tekuti_serv)
 	install -m755 -D tekuti-service $(tekuti_serv)
 	install -m755 -D src/tekuti $(prefix)/bin
+	install -m755 -d $(moddir)/tekuti/pages
+	install -m644 -D -t $(moddir)/tekuti/pages tekuti/pages/*.sxml
 	mkdir -p /var/log/tekuti 
 	chown $(tekuti_user) /var/log/tekuti
 	chgrp adm /var/log/tekuti

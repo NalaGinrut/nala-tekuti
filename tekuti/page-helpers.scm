@@ -428,5 +428,5 @@
 
 (define (extra-page-emit . names)
  (lambda (request body index)
-  (let ((sxml (load (format #f "pages/~{~a~^/~}.sxml" names))))
+  (let ((sxml (load (format #f "~a/tekuti/pages/~{~a~^/~}.sxml" *mod-path* names))))
    (respond sxml #:title (format #f "~{~a~^ ~}" names)))))
