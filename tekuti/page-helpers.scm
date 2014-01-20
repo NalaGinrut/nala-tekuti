@@ -326,6 +326,11 @@
         (determine-sizes (map cdr tags)))
    " "))
 
+(define (make-friendly-links)
+  (map (lambda (x)
+	 `(li (p (@ (id "fridendly-links")) (a (@ (href ,(cdr x))) ,(car x)))))
+       *friendly-links*))
+
 (define (main-sidebar request index)
   (sidebar-ul
    `((li (h2 (a (@ (href ,(relurl '("feed" "atom"))))
@@ -340,7 +345,9 @@
                          (value "")))))
      (li (h2 "tags " ,(rellink '("tags") ">>"))
          (ul (li (@ (style "line-height: 150%"))
-                 ,@(tag-cloud (top-tags index 30))))))))
+                 ,@(tag-cloud (top-tags index 30)))))
+     (li (h2 "Links")
+	 (ul ,@(make-friendly-links))))))
 
 (define (post-sidebar post index)
   (sidebar-ul
