@@ -27,6 +27,7 @@
 (define-module (tekuti git)
   #:use-module (ice-9 rdelim)
   #:use-module (ice-9 popen)
+  #:use-module (ice-9 format)
   #:use-module (tekuti util)
   #:use-module (tekuti config)
   #:use-module (tekuti match-bind)
