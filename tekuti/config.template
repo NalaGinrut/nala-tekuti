@@ -47,7 +47,7 @@
 (define *admin-url* "admin")
 (define *git-dir* "~/blog.git")
 (define *git* "git")
-(define *css-file* "/blog/css/base.css")
+;;(define *css-file* "/blog/css/base.css")
 (define *navbar-links* '())
 (define *navbar-infix* " ")
 ;; remove debug when you finish it, or anyone could hack your passwd
