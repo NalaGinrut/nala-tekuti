@@ -344,7 +344,7 @@
                (input (@ (name "string") (type "text") (size "15")
                          (value "")))))
      (li (h2 "tags " ,(rellink '("tags") ">>"))
-         (ul (li (@ (style "line-height: 150%"))
+         (ul (li (@ (style "line-height: 200%;word-spacing:5px;"))
                  ,@(tag-cloud (top-tags index 30)))))
      (li (h2 "Links")
 	 (ul ,@(make-friendly-links))))))
