@@ -197,10 +197,11 @@
         (comment_status . ,(if comments-open? "open" "closed"))
         (timestamp . ,timestamp)
         (name . ,name)
-        (key . ,(uri-encode
-                 (string-append (date->string (timestamp->date timestamp)
-                                              "~Y/~m/~d/")
-                                (uri-encode name))))))))
+	(key . ,(string-downcase
+		 (uri-encode
+		  (string-append (date->string (timestamp->date timestamp)
+					       "~Y/~m/~d/")
+				 (uri-encode name)))))))))
 
 (define (make-new-post post-data)
   (munge-post #f (parse-post-data post-data)))
