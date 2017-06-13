@@ -1,4 +1,4 @@
-1;3202;0c;; Tekuti
+;; Tekuti
 ;; Copyright (C) 2008, 2010, 2011, 2012 Andy Wingo <wingo at pobox dot com>
 
 ;; This program is free software; you can redistribute it and/or
@@ -65,9 +65,9 @@
    ;; ((GET debug) page-debug)
    ;; extra pages 
    ((GET about) (extra-page-emit "about"))
-   ((GET projects) (lambda (r b i) (respond "" #:host "https://github.com" #:redirect (relurl '("NalaGinrut")))))
+   ((GET projects) (extra-page-emit "projects"))
    ((GET writings) (extra-page-emit "writings"))
-   ((GET community) (lambda (r b i) (respond "" #:host "http://szdiy.org" #:redirect (relurl '()))))
+   ((GET community) (extra-page-emit "community"))
    (else page-not-found)))
 
 (define (cache-ref index request)

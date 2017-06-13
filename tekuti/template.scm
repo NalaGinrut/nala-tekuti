@@ -53,21 +53,16 @@
     (head (title ,title)
           (meta (@ (name "Generator")
                    (content "An unholy concoction of parenthetical guile")))
-	  (link (@ (rel "shortcut icon") (href "http://sixoth.com/mmr.ico")))
+	  (meta (@ (name "viewport") (content "width=device-width")))
+	  (link (@ (rel "shortcut icon") (href "https://nalaginrut.com/blog/mmr.ico")))
           (link (@ (rel "stylesheet")
                    (type "text/css")
                    (media "screen")
                    (href ,*css-file*)))
-	  (link (@ (href "http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic")
-		   (rel "stylesheet")
-		   (type "text/css")))
-	  (link (@ (href "http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic")
-		   (rel "stylesheet")
-		   (type "text/css")))
 	  (script (@ (type "text/x-mathjax-config"))
 		  "MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']]}});")
 	  (script (@ (type "text/javascript")
-		     (src "https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"))
+		     (src "https://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"))
 		  " ") ; NOTE: this whitespace is black magic for SXML in Guile!
 	  (script (@ (type "text/javascript") (src "/blog/js/sh_main.min.js")) " ")
 	  (script (@ (type "text/javascript") (src "/blog/js/lang/sh_c.js")) " ")
@@ -78,6 +73,8 @@
 	  (script (@ (type "text/javascript") (src "/blog/js/lang/sh_diff.min.js")) " ")
 	  (script (@ (type "text/javascript") (src "/blog/js/lang/sh_perl.js")) " ")
 	  (script (@ (type "text/javascript") (src "/blog/js/lang/sh_cpp.js")) " ")
+	  (script (@ (type "text/javascript") (src "/blog/js/lang/sh_erlang.min.js")) " ")
+          (script (@ (type "text/javascript") (src "/blog/js/lang/sh_lua.js")) " ")
 	  (link (@ (type "text/css") (rel "stylesheet") (href "/blog/css/sh_emacs.css")))
 	  (link (@ (rel "alternate")
                    (type "application/rss+xml")
@@ -89,6 +86,15 @@
               (a (@ ,(href "")) ,*title*))
           ,@(make-navbar)
           (div (@ (id "content")) ,@body)
+          (script
+           "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){            
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),                    
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)                   
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');                      
+                                                                                                    
+  ga('create', 'UA-42113629-1', 'nalaginrut.com');                                                  
+  ga('send', 'pageview');")
+
           (div (@ (id "footer"))
                "powered by "
                (a (@ (href "http://wingolog.org/software/tekuti/"))

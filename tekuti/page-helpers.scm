@@ -67,19 +67,22 @@
     ((_ tail)
      tail)))
 
-(define (ensure-public-uri x)
+(define* (ensure-public-uri x #:optional (host #f))
   (cond
    ((uri? x) x)
    ((string? x)
-    (build-uri 'http #:host *public-host* #:port *public-port* #:path x))
+    (if host
+	(string->uri (string-append host "/" x))
+	(build-uri 'http #:host *public-host* #:port *public-port* #:path x)))
    ((list? x)
-    (ensure-public-uri (relurl x)))
+    (ensure-public-uri (relurl x) host))
    (else (error "can't turn into a uri" x))))
 
 (define* (respond #:optional body #:key
                   redirect
+		  (host *public-host*)
                   (status (if redirect 302 200))
-                  (title *title*)
+		  (title *title*)
                   last-modified
                   etag
                   (doctype xhtml-doctype)
@@ -92,7 +95,7 @@
            #:code status
            #:headers (build-headers
 		      server server
-                      location (and=> redirect ensure-public-uri)
+                      location (and=> redirect (lambda (r) (if host (ensure-public-uri r host) (ensure-public-uri r))))
                       last-modified last-modified
                       content-type (cons content-type content-type-params)
                       date (current-date)

@@ -1,0 +1,3 @@
+`((h3 "Translations")
+      (p (@ (id "content"))
+      (a (@ (href "http://nalaginrut.com/blog/articles/5minutes/index.html")) "Give it 5 minutes")))

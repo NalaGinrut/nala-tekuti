@@ -62,7 +62,7 @@
 (define (urlish? x)
   (let ((uri (string->uri x)))
     (and uri
-         (memq (uri-scheme uri) '(http https))
+	 (memq (uri-scheme uri) '(#f http https))
          (uri-host uri)
          #t)))
 
@@ -102,8 +102,10 @@
       (display #\'))))
 
 (define (expanduser path)
-  (let ((parts (string-split path #\/)))
-    (if (eqv? (string-ref (car parts) 0) #\~)
+  (let* ((parts (string-split path #\/))
+	 (p (if (string-null? (car parts)) #f (car parts))))
+    (if (and (not (string-null? (car parts)))
+	     (eqv? (string-ref (car parts) 0) #\~))
         (let ((user (if (= (string-length (car parts)) 1)
                         (passwd:name (getpwuid (geteuid)))
                         (substring (car parts) 1))))
